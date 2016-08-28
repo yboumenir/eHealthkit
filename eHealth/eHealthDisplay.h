@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  eHealth sensor platform for Arduino and Raspberry from Cooking-hacks.
  *
  *  Description: "The e-Health Sensor Shield allows Arduino and Raspberry Pi 
@@ -34,7 +34,9 @@
 #define eHealthClassDisplay_h
 
 #include "Arduino.h"
+
 #include <avr/pgmspace.h> 
+typedef uint8_t PROGMEM prog_uint8_t;
 
 // Library interface description
 class eHealthDisplayClass {
