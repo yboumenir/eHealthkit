@@ -1,2 +1,2 @@
-
-set(SRC ECGExampleKST.ino)
+﻿
+set(SRC ECGExampleKST.cpp)

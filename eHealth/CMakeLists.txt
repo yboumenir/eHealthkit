@@ -5,14 +5,6 @@
 add_subdirectory(utils)
 add_subdirectory(examples)
 
-set(ARDUINO_DEFAULT_BOARD diecimila) # Default Board ID, when not specified
-set(ARDUINO_DEFAULT_PORT /dev/ttyUSB0) # Default Port, when not specified
-
-if (EXISTS "${ARDUINO_SDK_PATH}/examples/01.Basics/Blink")
-    set(BLINK_SKETCH "${ARDUINO_SDK_PATH}/examples/01.Basics/Blink")
-else()
-    set(BLINK_SKETCH "${ARDUINO_SDK_PATH}/examples/1.Basics/Blink")
-endif()
 
 MESSAGE(STATUS "garbage: " ${ARDUINO_SDK_PATH})
 
@@ -21,7 +13,7 @@ set(eHealth_lib_SRCS
     ${ARDUINO_SDK_PATH}/hardware/arduino/cores/arduino/HardwareSerial.cpp
     ${ARDUINO_SDK_PATH}/hardware/arduino/cores/arduino/HID.cpp
     ${ARDUINO_SDK_PATH}/hardware/arduino/cores/arduino/IPAddress.cpp
-    ${ARDUINO_SDK_PATH}/hardware/arduino/cores/arduino/main.cpp
+#    ${ARDUINO_SDK_PATH}/hardware/arduino/cores/arduino/main.cpp
     ${ARDUINO_SDK_PATH}/hardware/arduino/cores/arduino/new.cpp
     ${ARDUINO_SDK_PATH}/hardware/arduino/cores/arduino/Print.cpp
     ${ARDUINO_SDK_PATH}/hardware/arduino/cores/arduino/Stream.cpp
@@ -37,7 +29,6 @@ set(eHealth_lib_SRCS
     ${ARDUINO_SDK_PATH}/hardware/arduino/cores/arduino/WString.cpp
     eHealth.cpp
     eHealthDisplay.cpp
-    examples/ECGExampleKST/ECGExampleKST.ino
     )
 
 set(eHealth_lib_HDRS
@@ -76,8 +67,9 @@ generate_arduino_library(eHealth_lib)
 
 MESSAGE(STATUS "garbage: " ${eHealth_lib_SRCS})
 MESSAGE(STATUS "garbage: " ${CMAKE_CURRENT_SOURCE_DIR})
+
 # Alternative: by variables
-set(eHealth_SRCS examples/ECGExampleKST/ECGExampleKST.ino)
+set(eHealth_SRCS examples/ECGExampleKST/ECGExampleKST.cpp)
 set(eHealth_LIBS eHealth_lib)
 set(eHealth_BOARD uno)
 #

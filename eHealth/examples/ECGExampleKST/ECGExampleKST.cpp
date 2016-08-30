@@ -45,7 +45,7 @@ void setup() {
   Serial.println("Starting...");
 }
 
-void loop() { 
+void loop() {
   while (Serial.available()>0){  
     serialByte=Serial.read();
     if (serialByte=='C'){        
