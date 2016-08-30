@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  eHealth sensor platform for Arduino and Raspberry from Cooking-hacks.
  *
  *  Description: "The e-Health Sensor Shield allows Arduino and Raspberry Pi 
@@ -45,7 +45,7 @@ void setup() {
   Serial.println("Starting...");
 }
 
-void loop() { 
+void loop() {
   while (Serial.available()>0){  
     serialByte=Serial.read();
     if (serialByte=='C'){        

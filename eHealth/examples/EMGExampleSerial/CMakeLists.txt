@@ -1,0 +1,2 @@
+
+set(SRC EMGExampleSerial.ino)

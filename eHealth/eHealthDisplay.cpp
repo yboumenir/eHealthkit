@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  eHealth sensor platform for Arduino and Raspberry from Cooking-hacks.
  *
  *  Description: "The e-Health Sensor Shield allows Arduino and Raspberry Pi 
@@ -38,7 +38,7 @@
 #define pushButton 4
 
 //LOGO EHEALTH
-	PROGMEM  prog_uint8_t eHealthLogo[] = {
+    const prog_uint8_t eHealthLogo[] PROGMEM = {
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -106,7 +106,7 @@
 };
 
 //Cooking-Hacks logo. 
-PROGMEM  prog_uint8_t cookingLogo[] = {
+    const prog_uint8_t cookingLogo[] PROGMEM   = {
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -189,7 +189,6 @@ PROGMEM  prog_uint8_t cookingLogo[] = {
 	//!	Returns: void													*
 	//!	Example: eHealthDisplay.init();									*
 	//!******************************************************************
-	
 	void eHealthDisplayClass::init(void)
 	{
 		//Configure the eHealth push-Button
@@ -198,7 +197,7 @@ PROGMEM  prog_uint8_t cookingLogo[] = {
 		delay(2000);
 
 		//It prints the eHealth logo. 
-		image(0,64,128,64,eHealthLogo);
+        image(0,64,128,64,const_cast<prog_uint8_t*>(eHealthLogo));
 
 		coordinates(1, 15);
 		writeLCD("www.cooking-hacks.com"); 	delay(4000);
@@ -206,7 +205,8 @@ PROGMEM  prog_uint8_t cookingLogo[] = {
 		clearLCD();
 
 		//It prints cooking hacks logo. 
-		image(0,64,128,64,cookingLogo);	delay(3000); 
+        image(0,64,128,64,const_cast<prog_uint8_t*>(cookingLogo));
+        delay(3000);
 		clearLCD();  
 		delay(500);
 	}
